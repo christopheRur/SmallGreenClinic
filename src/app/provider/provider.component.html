@@ -1,0 +1,92 @@
+
+<!-- form -->
+<form #addForm="ngForm"  (ngSubmit)="onAddPatient(addForm)">
+  <div class="formP" [hidden]="hideForm">
+<h1 style="color: rgb(72, 197, 246);"> Add Patient Information</h1>
+<table>
+   <tr> <td>FirstName :</td> <td> <input ngModel name="firstName" type="text" required> </td> </tr>
+    <tr> <td>LastName :</td> <td> <input ngModel name="lastName" type="text" required> </td> </tr>
+    <tr> <td>JobTitle :</td> <td> <input ngModel name="jobTitle" type="text"> </td> </tr>
+    <tr> <td>Email :</td> <td> <input ngModel name="email" type="text" required> </td> </tr>
+    <tr> <td>Phone :</td> <td> <input ngModel name="phone" type="text"> </td> </tr>
+    <tr> <td>imageUrl :</td> <td> <input ngModel name="imageUrl" type="text"> </td> </tr>
+    <br>
+
+  </table>
+  <input id="btnfO" type="submit" value="Add">
+  </div>
+
+</form>
+<div class="btns">
+  <input id="btnfO" type="submit" value="Add Patient" (click)="openForm()">
+  <input id="btnfC" type="submit" value="X" (click)="closeForm()">
+</div>
+<br>
+
+
+<!-- List of patient -->
+                          <div class="container" id="main-container" >
+                            <div class="row" >
+                              <div *ngFor="let patient of patients.reverse()" class="col-md-6 col-xl-3" >
+                                 <div class="card m-b-30" style="padding: 20px; border-radius: 12px; background-color: white;">
+                                    <div class="card-body row">
+                                       <div class="col-6" style="background-color:rgba(23, 23, 208, 0.408) ;">
+                                          <a href=""> <img src="{{patient?.imageUrl}}" style="width:100%; background-color: rgba(39, 207, 59, 0.501);" onerror="this.src='assets/logoo.png'" ></a>
+                                       </div>
+                                       <div class="col-6 card-title align-self-center mb-0" style="background-color:rgba(141, 255, 141, 0.408) ;">
+                                       <table>
+                                        <tr>
+                                        <td>FirstName:</td> <td>{{patient?.firstName}} </td>
+                                      </tr>
+                                      <tr>
+                                        <td>LastName:</td> <td>{{patient?.lastName}} </td>
+                                      </tr>
+                                      <tr>
+                                        <td>RxCode:</td> <td>{{patient?.rxCode}} </td>
+                                      </tr>
+                                      <tr>
+                                        <td>JobTitle:</td> <td>{{patient?.jobTitle}} </td>
+                                      </tr>
+                                    </table>
+
+                                       </div>
+                                    </div>
+
+                                    <div style="background-color:rgba(29, 212, 185, 0.404);">
+                                      <table>
+                                      <tr>
+                                        <td>Email: </td> <td>{{patient?.email}}</td>
+                                      </tr>
+                                      <tr>
+                                        <td> Phone:  </td> <td>{{patient?.phone}}</td>
+                                      </tr>
+                                      </table>
+
+                                      <br>
+                                      <div class="dialog" [hidden]="dialogue" >
+                                        <p>Are you sure you want to REMOVE Patient?</p>
+                                         <table>
+                                          <tr><dt> {{patient?.firstName}} {{patient?.lastName}}</dt></tr></table>
+                                        <div class="modal-footer">
+                                           <button type="button" (click)="closeDialogue()">No{{patient.id}}</button>
+                                           <button  id="remPat" (click)="onDeleteUser(patient.id)" data-dismiss="modal">Yes</button>
+                                        </div>
+                                      </div>
+                                        <div class="btns">
+                                          <!-- <input id="btnE" type="submit" value="Edit" (click)="openForm()"> -->
+                                          <input id="btnD" type="submit" value="Delete" (click)="openDialague()">
+                                        </div>
+
+
+
+
+
+                                    </div>
+
+
+
+
+                                 </div>
+                              </div>
+                            </div>
+                          </div>

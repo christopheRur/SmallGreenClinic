@@ -1,0 +1,11 @@
+<div *ngIf="display"style="background-color:rgba(141, 255, 141, 0.408); height: 150px;margin-right: 1050px;">
+  <form  style="margin-bottom:11px ;">
+<br>
+    <input type="text" id="user" name="username"[(ngModel)]="username"  placeholder="username" style="margin-left:10px ;" required/><br><br>
+    <input type="password" id="pass" name="password" [(ngModel)]="password" placeholder="password"style="margin-left:10px;" required/><br><br>
+    <input type="submit" routerLink="provider" (click)="logingUser()"  id="btn" name="login" value="Login" default style="margin-left:10px;" input>
+
+</form>
+
+</div>
+<router-outlet *ngIf="dispProv"></router-outlet>

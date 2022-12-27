@@ -1,0 +1,55 @@
+
+
+
+.navbar{
+  background-color: black;
+  border-radius: 30px;
+}
+.navbar li{
+  float:left;
+  list-style: none;
+  margin: 13px 20px;
+}
+.navbar ul{
+  overflow: auto;
+}
+.navbar li a{
+  padding: 3px 3px;
+  text-decoration: none;
+  color: white;
+}
+.search{
+  float: right;
+  color: white;
+  padding: 12px 75px;
+}
+.navbar input{
+  border: 2px solid black;
+  border-radius: 14px;
+  padding: 3px 17px;
+  width: 129px;
+}
+#title{
+text-align: center;
+margin-top: 40px;
+font-size: 56px;
+color: rgb(7, 80, 11);
+}
+#logo{
+  height:200px;
+  width:200px;
+  float: left;
+}
+h1 {
+  color: green;
+}
+
+a + div {
+  display: none;
+}
+
+a:hover + div {
+  display: block;
+  color: green;
+  font-size: 25px;
+}
